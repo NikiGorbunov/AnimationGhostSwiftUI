@@ -39,12 +39,40 @@ struct GhostView: View {
                                 self.resetStrokes = false
                             }
                         }
-                        withAnimation(Animation.easeOut(duration: 0.5)) {
+                        withAnimation(Animation.easeOut(duration: 0.9)) {
                             self.strokeEnd += 0.1
                             self.strokeStart = self.strokeEnd - 0.3
                         }
                     }
                 }
+            HStack() {
+                ZStack {
+                    Circle()
+                        .fill(.white)
+                    .frame(width: 30, height: 30)
+                    .offset(x: -10, y: -50)
+                    Circle()
+                        .frame(width: 10, height: 10)
+                        .offset(x: -20, y: -50)
+                }
+                ZStack {
+                    Circle()
+                        .fill(.white)
+                    .frame(width: 30, height: 30)
+                    .offset(x: 10, y: -50)
+                    Circle()
+                        .frame(width: 10, height: 10)
+                        .offset(x: 1, y: -50)
+                }
+            }
+            Circle()
+                .trim(from: 0.7, to: 1)
+                .stroke(Color.white, lineWidth: 5)
+                .frame(width: 130, height: 130)
+                .rotationEffect(.init(degrees: 143))
+                .offset(x: 0, y: -40)
+            
+                
         }
     }
 }
